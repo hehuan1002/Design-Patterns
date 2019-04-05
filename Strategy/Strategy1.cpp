@@ -9,17 +9,18 @@ enum TaxBase{
 	DE_Tax  // add new tax
 };
 
+
 class SalesOrder
 {
-
 public:
 	SalesOrder(){}
 	~SalesOrder(){}
 
 public:
 	void SetTaxBase(TaxBase tax){ _tax = tax;}
-	void CalculateTax()
+	double CalculateTax()
 	{
+		double dTax = 0;
 		if (_tax == CN_Tax){
 			//......
 		}
@@ -35,6 +36,7 @@ public:
 		else if (_tax == DE_Tax){
 			//add code in here
 		}
+		return dTax;
 	}
 private:
 	TaxBase _tax;
@@ -43,6 +45,6 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	SalesOrder sales;
 	sales.SetTaxBase(CN_Tax);
-	sales.CalculateTax();
+	double dResult = sales.CalculateTax();
 	return 0;
 }
